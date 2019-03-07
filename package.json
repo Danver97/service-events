@@ -1,0 +1,14 @@
+{
+  "name": "@danver97/events",
+  "version": "1.0.0",
+  "description": "Events used in a event sourcing project",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Christian Paesante",
+  "license": "ISC"
+}
