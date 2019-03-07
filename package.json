@@ -1,5 +1,5 @@
 {
-  "name": "@danver97/events",
+  "name": "@danver97/service-events",
   "version": "1.0.0",
   "description": "Events used in a event sourcing project",
   "main": "index.js",
@@ -10,6 +10,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Christian Paesante",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/Danver97/service-events.git"
+  },
   "license": "ISC",
   "devDependencies": {
     "eslint": "^5.15.1",
