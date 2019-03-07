@@ -1,4 +1,5 @@
 const fs = require('fs');
+const Path = require('path');
 
 function checkByObject(jsonObj, event) {
     if (!jsonObj)
@@ -11,17 +12,17 @@ function checkByObject(jsonObj, event) {
             if (event[k] !== jsonObj[k])
                 throw new Error('Wrong: value not exact');
             return;
-        } else if (typeof jsonObj[k] === 'string' && typeof event[k] !== jsonObj[k]) {
-            throw new Error('Wrong: type of the key is wrong');
         }
+        if (typeof jsonObj[k] === 'string' && typeof event[k] !== jsonObj[k])
+            throw new Error('Wrong: type of the key is wrong');
         else if (typeof jsonObj[k] === 'object') {
             const obj = jsonObj[k];
             if (obj.$or) {
                 if (!obj.$or.includes(typeof event[k]))
                     throw new Error('Wrong: $or does not contains');
                 return;
-            } else
-                checkByObject(jsonObj[k], event[k]);
+            }
+            checkByObject(jsonObj[k], event[k]);
         } else if (Array.isArray(jsonObj[k])) {
             if (!Array.isArray(event[k]))
                 throw new Error('Wrong: is not array');
@@ -36,22 +37,26 @@ function checkByPath(path, event) {
     checkByObject(jsonObj, event);
 }
 
+function toAbs(path) {
+    return Path.join(__dirname, path);
+}
+
 const paths = {
     reservation: {
-        RESERVATION_CREATED: './jsons/reservation-events/reservation_created.json',
-        RESERVATION_CONFIRMED: './jsons/reservation-events/reservation_confirmed.json',
-        RESERVATION_REJECTED: './jsons/reservation-events/reservation_rejected.json',
-        RESERVATION_CANCELLED: '.jsons//reservation-events/reservation_cancelled.json',
-        RESTAURANT_RESERVATIONS_CREATED: './jsons/reservation-events/restaurant_reservations_created.json',
-        RESERVATION_ADDED: './jsons/reservation-events/reservation_added.json',
-        RESERVATION_REMOVED: './jsons/reservation-events/reservation_removed.json',
+        RESERVATION_CREATED: toAbs('./jsons/reservation-events/reservation_created.json'),
+        RESERVATION_CONFIRMED: toAbs('./jsons/reservation-events/reservation_confirmed.json'),
+        RESERVATION_REJECTED: toAbs('./jsons/reservation-events/reservation_rejected.json'),
+        RESERVATION_CANCELLED: toAbs('./jsons/reservation-events/reservation_cancelled.json'),
+        RESTAURANT_RESERVATIONS_CREATED: toAbs('./jsons/reservation-events/restaurant_reservations_created.json'),
+        RESERVATION_ADDED: toAbs('./jsons/reservation-events/reservation_added.json'),
+        RESERVATION_REMOVED: toAbs('./jsons/reservation-events/reservation_removed.json'),
     },
     restaurant_catalog: {
-        RESTAURANT_CREATED: './jsons/restaurant-catalog-events/restaurant_created.json',
-        TABLE_ADDED: './jsons/restaurant-catalog-events/table_added.json',
-        TABLE_REMOVED: './jsons/restaurant-catalog-events/table_removed.json',
-        TABLES_ADDED: './jsons/restaurant-catalog-events/tables_added.json',
-        TABLES_REMOVED: './jsons/restaurant-catalog-events/tables_removed.json',
+        RESTAURANT_CREATED: toAbs('./jsons/restaurant-catalog-events/restaurant_created.json'),
+        TABLE_ADDED: toAbs('./jsons/restaurant-catalog-events/table_added.json'),
+        TABLE_REMOVED: toAbs('./jsons/restaurant-catalog-events/table_removed.json'),
+        TABLES_ADDED: toAbs('./jsons/restaurant-catalog-events/tables_added.json'),
+        TABLES_REMOVED: toAbs('./jsons/restaurant-catalog-events/tables_removed.json'),
     },
 };
 
