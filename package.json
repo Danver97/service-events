@@ -1,6 +1,6 @@
 {
   "name": "@danver97/service-events",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Events used in a event sourcing project",
   "main": "index.js",
   "directories": {
