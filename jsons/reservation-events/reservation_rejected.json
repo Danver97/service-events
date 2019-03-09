@@ -7,6 +7,6 @@
     "payload": {
         "resId": "string",
         "restId": "string",
-        "status": "rejected",
+        "status": "rejected"
     }
 }

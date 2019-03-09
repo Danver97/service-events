@@ -12,7 +12,6 @@
         "userId": "string",
         "reservationName": "string",
         "people": "number",
-        "date": "string",
-
+        "date": "string"
     }
 }

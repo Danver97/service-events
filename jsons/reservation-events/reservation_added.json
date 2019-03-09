@@ -11,7 +11,7 @@
         "people": "number",
         "table": {
         	"id": "string",
-        	"people": "number",
-        },
+        	"people": "number"
+        }
     }
 }

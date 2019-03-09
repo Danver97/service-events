@@ -7,6 +7,6 @@
     "payload": {
         "restId": "string",
         "timeTable": "string",
-        "tables": [],
+        "tables": []
     }
 }

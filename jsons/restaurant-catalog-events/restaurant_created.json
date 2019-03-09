@@ -11,71 +11,71 @@
             "Monday": {
             	"morning": {
                     "open": "string",
-                    "close": "string",
+                    "close": "string"
             	},
             	"afternoon": {
                     "open": "string",
-                    "close": "string",
+                    "close": "string"
             	}
             },
             "Tuesday": {
             	"morning": {
                     "open": "string",
-                    "close": "string",
+                    "close": "string"
             	},
             	"afternoon": {
                     "open": "string",
-                    "close": "string",
+                    "close": "string"
             	}
             },
             "Wednesday": {
             	"morning": {
                     "open": "string",
-                    "close": "string",
+                    "close": "string"
             	},
             	"afternoon": {
                     "open": "string",
-                    "close": "string",
+                    "close": "string"
             	}
             },
             "Thursday": {
             	"morning": {
                     "open": "string",
-                    "close": "string",
+                    "close": "string"
             	},
             	"afternoon": {
                     "open": "string",
-                    "close": "string",
+                    "close": "string"
             	}
             },
             "Friday": {
             	"morning": {
                     "open": "string",
-                    "close": "string",
+                    "close": "string"
             	},
             	"afternoon": {
                     "open": "string",
-                    "close": "string",
+                    "close": "string"
             	}
             },
             "Saturday": {
             	"morning": {
                     "open": "string",
-                    "close": "string",
+                    "close": "string"
             	},
             	"afternoon": {
                     "open": "string",
-                    "close": "string",
+                    "close": "string"
             	}
             },
             "Sunday": {
             	"morning": {
                     "open": "string",
-                    "close": "string",
+                    "close": "string"
             	},
             	"afternoon": {
                     "open": "string",
-                    "close": "string",
+                    "close": "string"
             	}
             }
         },

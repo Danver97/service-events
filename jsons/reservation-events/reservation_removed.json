@@ -6,6 +6,6 @@
     "message": "string",
     "payload": {
         "restId": "string",
-        "resId": "string",
+        "resId": "string"
     }
 }
