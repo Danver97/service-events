@@ -2,7 +2,7 @@ const fs = require('fs');
 const Path = require('path');
 
 function checkByObject(jsonObj, event) {
-    if (!jsonObj)
+    if (!jsonObj || typeof jsonObj !== 'object')
         return;
     if (typeof event !== 'object')
         throw new Error('event is not object');
