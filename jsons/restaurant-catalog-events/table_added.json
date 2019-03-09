@@ -5,6 +5,6 @@
     },
     "message": "string",
     "payload": {
-        "tables": "array"
+        "tables": []
     }
 }
