@@ -5,21 +5,21 @@ function checkByObject(jsonObj, event) {
     if (!jsonObj || typeof jsonObj !== 'object')
         return;
     if (typeof event !== 'object')
-        throw new Error('event is not object');
+        throw new Error(`event is not object: expected something like ${JSON.stringify(jsonObj)} found ${event}`);
     Object.keys(jsonObj).forEach(k => {
         if ((typeof jsonObj[k] === 'string' && jsonObj[k] !== 'string' && jsonObj[k] !== 'number' && jsonObj[k] !== 'object')
         || typeof jsonObj[k] === 'number') {
             if (event[k] !== jsonObj[k])
-                throw new Error('Wrong: value not exact');
+                throw new Error(`Value not exact for key ${k}: expected ${jsonObj[k]} found ${event[k]}`);
             return;
         }
         if (typeof jsonObj[k] === 'string' && typeof event[k] !== jsonObj[k])
-            throw new Error('Wrong: type of the key is wrong');
+            throw new Error(`Type of the key ${k} is wrong: expected ${jsonObj[k]} found ${typeof event[k]}`);
         else if (typeof jsonObj[k] === 'object') {
             const obj = jsonObj[k];
             if (obj.$or) {
                 if (!obj.$or.includes(typeof event[k]))
-                    throw new Error('Wrong: $or does not contains');
+                    throw new Error(`Type of the key ${k} is wrong: expected ${obj.$or.join(' | ')} found ${typeof event[k]}`);
                 return;
             }
             checkByObject(jsonObj[k], event[k]);
@@ -59,6 +59,28 @@ const paths = {
         TABLES_REMOVED: toAbs('./jsons/restaurant-catalog-events/tables_removed.json'),
     },
 };
+
+/* const e = {
+    streamId: 'asdf',
+    eventId: 1,
+    message: 'restaurantCreated',
+    payload:
+    {
+        restId: 'asdf',
+        owner: 'Giucas Casella',
+        timeTable: {
+            Monday: '7:00-18:00',
+            Tuesday: '7:00-18:00',
+            Wednesday: '7:00-18:00',
+            Thursday: '7:00-18:00',
+            Friday: '7:00-18:00',
+            Saturday: '7:00-18:00',
+            Sunday: '7:00-18:00',
+        },
+        tables: [],
+    },
+};
+checkByPath(paths.restaurant_catalog.RESTAURANT_CREATED, e); */
 
 module.exports = {
     checkByObject,
